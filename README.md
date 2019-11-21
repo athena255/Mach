@@ -1,6 +1,9 @@
 
 Mach parses the definitions from C++ header files into switch statements for C++
-For example: 
+
+Mach has parsed tests/loader.h (from mach-o/loader.h) into tests/tostringloader.h
+
+Small example: 
 
     #define LC_REQ_DYLD 0x80000000
     #define	LC_TWOLEVEL_HINTS 0x16	/* two-level namespace lookup hints */
