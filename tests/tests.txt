@@ -1,0 +1,41 @@
+#define LC_REQ_DYLD 0x80000000
+#define	LC_TWOLEVEL_HINTS 0x16	/* two-level namespace lookup hints */
+#define	LC_PREBIND_CKSUM  0x17	/* prebind checksum */
+
+/*
+ * load a dynamically linked shared library that is allowed to be missing
+ * (all symbols are weak imported).
+ */
+#define	LC_LOAD_WEAK_DYLIB (0x18 | LC_REQ_DYLD)
+
+#define	LC_SEGMENT_64	0x19	/* 64-bit segment of this file to be
+				   mapped */
+#define MH_NOFIXPREBINDING 0x400	/* do not have dyld notify the
+					   prebinding agent about this
+					   executable */
+#define MH_PREBINDABLE  0x800           /* the binary is not prebound but can
+					   have its prebinding redone. only used
+                                           when MH_PREBOUND is not set. */
+#define MH_ALLMODSBOUND 0x1000		/* indicates that this binary binds to
+                                           all two-level namespace modules of
+					   its dependent libraries. only used
+					   when MH_PREBINDABLE and MH_TWOLEVEL
+					   are both set. */ 
+#define MH_SUBSECTIONS_VIA_SYMBOLS 0x2000/* safe to divide up the sections into
+					    sub-sections via symbols for dead
+					    code stripping */
+#define MH_CANONICAL    0x4000		/* the binary has been canonicalized
+					   via the unprebind operation */
+#define MH_WEAK_DEFINES	0x8000		/* the final linked image contains
+					   external weak symbols */
+#define MH_BINDS_TO_WEAK 0x10000	/* the final linked image uses
+					   weak symbols */
+
+#define	LC_ROUTINES_64	0x1a	/* 64-bit image routines */
+#define LC_RPATH       (0x1c | LC_REQ_DYLD)    /* runpath additions */
+
+/* Constants for the cmd field of all load commands, the type */
+#define	LC_SEGMENT	0x1	/* segment of this file to be mapped */
+#define	LC_SYMTAB	0x2	/* link-edit stab symbol table info */
+#define	LC_SYMSEG	0x3	/* link-edit gdb symbol table info (obsolete) */
+
